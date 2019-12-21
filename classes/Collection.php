@@ -1,4 +1,9 @@
 <?php
+/**
+ * Main controller for our application
+ * Takes a connection to a db on construction
+ * Also has a method for selecting listings from the db
+ */
 
 class Collection
 {
@@ -54,13 +59,13 @@ class Collection
     }
 
     /**
-     * Add listing to collection
+     * Add listing and to collection
      * @param array $data User Data or null
      * @return object
      */
     public function addListing($data = null)
     {
-        $listing = new ListingBasic($data);
+        $listing = new ListingPremium($data);
         $this->listings[] = $listing;
         return $listing;
     }
