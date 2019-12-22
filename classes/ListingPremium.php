@@ -2,8 +2,8 @@
 class ListingPremium extends ListingBasic
 {
     protected $status = 'premium';
-    private $description;
-    protected $allowed_tags = '<p><br><b><strong><em><u><ol><ul><li>';
+    protected $description;
+    protected static $allowed_tags = '<p><br><b><strong><em><u><ol><ul><li>';
     /**
      * Gets the local property $description
      * @return string 
@@ -33,7 +33,7 @@ class ListingPremium extends ListingBasic
 
       public function setDescription($value)
       {     
-          $this->description = trim(strip_tags($value, $this->allowed_tags));
+          $this->description = trim(strip_tags($value, self::$allowed_tags));
       }
 
 }
