@@ -19,6 +19,7 @@ $test->setDescription('My description with <b> Good Tags </b> and
 var_dump($test);
 var_dump(get_class($test));
 var_dump(is_a($test, 'ListingBasic'));
+var_dump($test->getStatus());
 
 foreach ($directory->listings as $listing) {
     include 'views/list_item.php';

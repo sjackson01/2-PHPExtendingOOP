@@ -1,6 +1,7 @@
 <?php
 class ListingPremium extends ListingBasic
 {
+    protected $status = 'premium';
     private $description;
     protected $allowed_tags = '<p><br><b><strong><em><u><ol><ul><li>';
     /**
