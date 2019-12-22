@@ -36,6 +36,17 @@ class ListingPremium extends ListingBasic
           $this->description = trim(strip_tags($value, self::$allowed_tags));
       }
 
+      /**
+     * Gets the local static property $allowed_tags
+     * Use htmlspecialchars() to display $allowed_tags to user
+     * @return string
+     */
+
+      public static function displayAllowedTags()
+      {
+            return htmlspecialchars(self::$allowed_tags);
+      }
+
 }
 
 

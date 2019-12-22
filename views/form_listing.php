@@ -16,6 +16,8 @@
 </div>
 <div class="form-group input-group">
     <label class="control-label" for="description">Description</label>
+    <!-- Display allowed html tags for use in the description --> 
+    Allowed Tags: <?php echo ListingPremium::displayAllowedTags(); ?>
     <textarea class="form-control" name="description"  id="description">
     <?php 
         //check if listing is premium 
