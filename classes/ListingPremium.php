@@ -8,6 +8,18 @@ class ListingPremium extends ListingBasic
      * Gets the local property $description
      * @return string 
      */
+    
+     /**
+     * Calls individual methods to set values for object properties.
+     * Uses parent setValues() method to call individual methods from parent class.
+     * @param array $data Data to set from user or database
+     */
+    public function setValues($data = []) {
+        parent::setValues($data);
+        if (isset($data['description'])) {
+            $this->setDescription($data['description']);
+        }
+    }
 
      public function getDescription()
      {
