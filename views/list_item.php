@@ -2,6 +2,9 @@
 //Add switch to change class based on status
 echo '<div class="listing panel ';
 switch ($listing->getStatus()){
+    case 'featured':
+        echo 'panel-success';
+        break;
      case 'premium':
         echo 'panel-info';
         break;
@@ -47,4 +50,8 @@ if (!empty($listing->getTwitter())) {
 }
     echo '</p>' . PHP_EOL;
     echo '</div>' . PHP_EOL;/**/
-echo '</div>' . PHP_EOL;
+if(is_a($listing, 'ListingFeatured') && !empty($listing->getCoc())){
+    echo '<div class="panel-footer" id="coc' . $listing->getId();
+    echo '">' . $listing->getCoc() . '</div>';
+
+}

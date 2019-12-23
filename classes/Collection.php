@@ -7,7 +7,7 @@
 
 class Collection
 {
-    private $statuses = ['premium','basic', 'inactive'];
+    private $statuses = ['featured','premium','basic', 'inactive'];
     private $db;
     // array of listing objects
     public $listings = [];
@@ -64,8 +64,9 @@ class Collection
      * @return object
      */
     public function addListing($data = null)
-    {
-        if(isset($data['status']) && $data['status'] == 'premium'){
+    {   if(isset($data['status']) && $data['status'] == 'featured'){
+        $listing = new ListingFeatured($data);
+        }elseif(isset($data['status']) && $data['status'] == 'premium'){
         $listing = new ListingPremium($data);
         }elseif(isset($data['status']) && $data['status'] == 'inactive'){
         $listing = new ListingInactive($data);
