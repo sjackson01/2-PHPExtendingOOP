@@ -2,9 +2,15 @@
 //Add switch to change class based on status
 echo '<div class="listing panel ';
 switch ($listing->getStatus()){
+    case 'featured':
+        echo 'panel-success';
+        break;
      case 'premium':
         echo 'panel-info';
         break;
+     case 'inactive':
+        echo 'panel-danger';
+        break;   
      default: 
      echo 'panel-default'; 
 }
@@ -42,6 +48,16 @@ if (!empty($listing->getEmail())) {
 if (!empty($listing->getTwitter())) {
     echo ' <a href="https://twitter.com/' . $listing->getTwitter() . '" target="_blank">@' . $listing->getTwitter() . '</a> | ' . PHP_EOL;
 }
+
+if(is_a($listing, 'ListingFeatured') && !empty($listing->getCoc())){
+    echo '<a href="javascript:;" onclick="toggle(\'coc' . $listing->getId() . '\')
+    ">Code of Conduct</a> |';
+}
+
     echo '</p>' . PHP_EOL;
     echo '</div>' . PHP_EOL;/**/
-echo '</div>' . PHP_EOL;
+if(is_a($listing, 'ListingFeatured') && !empty($listing->getCoc())){
+    echo '<div class="panel-footer" id="coc' . $listing->getId();
+    echo '"style="display:none" >' . $listing->getCoc() . '</div>';
+
+}

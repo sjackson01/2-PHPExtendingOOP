@@ -28,6 +28,19 @@
     </textarea>   
 </div>
 <div class="form-group input-group">
+    <label class="control-label" for="description">Code Of Conduct (Featured Only) </label>
+    <!-- Display allowed html tags for use in the code of conduct --> 
+    Allowed Tags: <?php echo ListingPremium::displayAllowedTags(); ?>
+    <textarea class="form-control" name="coc"  id="coc">
+    <?php 
+        //Check if listing is featured 
+        if(is_a($listing, 'ListingFeatured')){
+            echo $listing->getCoc();
+        }
+    ?>
+    </textarea>   
+</div>
+<div class="form-group input-group">
     <label class="control-label" for="website">Website</label>
     <input class="form-control" type="text" name="website" id="website" placeholder="Enter a Website" value="<?php echo $listing->getWebsite(); ?>"  size="30" />
 </div>
