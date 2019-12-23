@@ -67,6 +67,8 @@ class Collection
     {
         if(isset($data['status']) && $data['status'] == 'premium'){
         $listing = new ListingPremium($data);
+        }elseif(isset($data['status']) && $data['status'] == 'inactive'){
+        $listing = new ListingInactive($data);
         }else{   
         $listing = new ListingBasic($data);
         }
