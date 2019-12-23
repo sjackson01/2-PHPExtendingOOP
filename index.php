@@ -14,12 +14,14 @@ $directory->selectListings($filter);
 $title = "PHP Conferences";
 require 'inc/header.php';
 
+/*
 $test = new ListingFeatured(['description' => 'My description with 
 <b>Good</b> tags and <a href="http://example.com"> Bad Tags </a>']);
 var_dump($test);
 var_dump(get_class($test));
 var_dump(is_a($test, 'ListingBasic'));
 var_dump($test->getStatus());
+*/
 
 echo '<ul class="nav nav-tabs">';
 echo '<li role="presentation"';
