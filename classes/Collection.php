@@ -1,8 +1,13 @@
 <?php
+/**
+ * Main controller for our application
+ * Takes a connection to a db on construction
+ * Also has a method for selecting listings from the db
+ */
 
 class Collection
 {
-    private $statuses = ['basic', 'inactive'];
+    private $statuses = ['premium','basic', 'inactive'];
     private $db;
     // array of listing objects
     public $listings = [];
@@ -54,13 +59,17 @@ class Collection
     }
 
     /**
-     * Add listing to collection
+     * Add listing and to collection
      * @param array $data User Data or null
      * @return object
      */
     public function addListing($data = null)
     {
+        if(isset($data['status']) && $data['status'] == 'premium'){
+        $listing = new ListingPremium($data);
+        }else{   
         $listing = new ListingBasic($data);
+        }
         $this->listings[] = $listing;
         return $listing;
     }
