@@ -14,7 +14,7 @@ $directory->selectListings($filter);
 $title = "PHP Conferences";
 require 'inc/header.php';
 
-$test = new ListingInactive(['description' => 'My description with 
+$test = new ListingFeatured(['description' => 'My description with 
 <b>Good</b> tags and <a href="http://example.com"> Bad Tags </a>']);
 var_dump($test);
 var_dump(get_class($test));
